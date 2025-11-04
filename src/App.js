@@ -7,13 +7,28 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState('AI & Machine Learning');
 
+  // --- START Responsive Logic ---
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // Define mobile breakpoint (768px is standard for MD in Tailwind/Bootstrap)
+  const isMobile = windowWidth < 768;
+
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+  // --- END Responsive Logic ---
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -113,12 +128,12 @@ export default function Portfolio() {
           backdropFilter: 'blur(10px)',
           transition: 'all 0.3s'
         }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
               <button
                 onClick={() => scrollToSection('home')}
                 style={{
-                  fontSize: '1.25rem',
+                  fontSize: isMobile ? '1rem' : '1.25rem',
                   fontWeight: '700',
                   color: colors.text,
                   background: 'none',
@@ -146,7 +161,7 @@ export default function Portfolio() {
               </button>
 
               {/* Desktop Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="hidden md:flex">
+              <div style={{ display: isMobile ? 'none' : 'flex', alignItems: 'center', gap: '2rem' }}>
                 {[
                   { id: 'home', label: 'Home' },
                   { id: 'about', label: 'About' },
@@ -212,7 +227,7 @@ export default function Portfolio() {
               </div>
 
               {/* Mobile Menu Button */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="md:hidden">
+              <div style={{ display: isMobile ? 'flex' : 'none', alignItems: 'center', gap: '0.5rem' }}>
                 <button
                   onClick={() => setIsDarkMode(!isDarkMode)}
                   style={{
@@ -241,8 +256,8 @@ export default function Portfolio() {
             </div>
 
             {/* Mobile Menu */}
-            {mobileMenuOpen && (
-              <div style={{ paddingBottom: '1rem' }} className="md:hidden">
+            {mobileMenuOpen && isMobile && (
+              <div style={{ paddingBottom: '1rem' }}>
                 {[
                   { id: 'home', label: 'Home' },
                   { id: 'about', label: 'About' },
@@ -276,20 +291,20 @@ export default function Portfolio() {
         </nav>
 
         {/* Hero Section */}
-        <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0 2rem', justifyContent: 'center' }}>
+        <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '7rem 1rem 4rem' : '0 2rem', justifyContent: 'center' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', gap: isMobile ? '2rem' : '4rem', alignItems: 'center' }}>
               <div className="fade-in">
-                <p style={{ fontSize: '1.125rem', color: colors.purple, fontWeight: '600', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <p style={{ fontSize: isMobile ? '1rem' : '1.125rem', color: colors.purple, fontWeight: '600', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Sparkles size={20} /> Hi, my name is
                 </p>
-                <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: '700', marginBottom: '1rem', lineHeight: '1.1' }}>
+                <h1 style={{ fontSize: isMobile ? '2.5rem' : 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: '700', marginBottom: '1rem', lineHeight: '1.1' }}>
                   Riddhi Joshi
                 </h1>
-                <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)', fontWeight: '600', color: colors.textSecondary, marginBottom: '2rem', lineHeight: '1.2' }}>
+                <h2 style={{ fontSize: isMobile ? '1.5rem' : 'clamp(1.5rem, 4vw, 3rem)', fontWeight: '600', color: colors.textSecondary, marginBottom: '2rem', lineHeight: '1.2' }}>
                   I build intelligent AI solutions.
                 </h2>
-                <p style={{ fontSize: '1.1875rem', color: colors.textTertiary, marginBottom: '3rem', lineHeight: '1.8', maxWidth: '600px' }}>
+                <p style={{ fontSize: isMobile ? '1rem' : '1.1875rem', color: colors.textTertiary, marginBottom: '3rem', lineHeight: '1.8', maxWidth: '600px' }}>
                   I'm an AI & Data Science student specializing in building exceptional machine learning models, NLP systems, and scalable cloud applications. Currently focused on crafting intelligent solutions that make a real-world impact.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -321,11 +336,11 @@ export default function Portfolio() {
               </div>
 
               {/* Photo Placeholder */}
-              <div style={{ display: 'flex', justifyContent: 'center' }} className="fade-in-delayed">
+              <div style={{ display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? -1 : 0 }} className="fade-in-delayed">
                 <div
                   style={{
-                    width: '350px',
-                    height: '350px',
+                    width: isMobile ? '250px' : '350px',
+                    height: isMobile ? '250px' : '350px',
                     borderRadius: '0.75rem',
                     border: `3px solid ${colors.purple}`,
                     boxShadow: `0 0 30px ${colors.purple}40`,
@@ -369,29 +384,29 @@ export default function Portfolio() {
         </section>
 
         {/* About Section */}
-        <section id="about" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0 2rem', backgroundColor: colors.secondary }}>
+        <section id="about" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '4rem 1rem' : '0 2rem', backgroundColor: colors.secondary }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '0.5rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '0.5rem', textAlign: 'center' }}>
               About <span style={{ color: colors.purple }}>Me</span>
             </h2>
-            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '2.5rem', fontSize: '1rem' }}>
+            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '2.5rem', fontSize: isMobile ? '0.9375rem' : '1rem' }}>
               Learn more about my background and journey
             </p>
 
             {/* Professional Summary - Google Style */}
-            <div style={{ backgroundColor: colors.card, padding: '2rem', borderRadius: '0.75rem', border: `1px solid ${colors.border}`, marginBottom: '2rem' }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: colors.purple }}>
+            <div style={{ backgroundColor: colors.card, padding: isMobile ? '1.5rem' : '2rem', borderRadius: '0.75rem', border: `1px solid ${colors.border}`, marginBottom: '2rem' }}>
+              <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: '600', marginBottom: '1rem', color: colors.purple }}>
                 Professional Summary
               </h3>
-              <p style={{ fontSize: '1.0625rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
+              <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
                 Results-driven AI & Data Science undergraduate with proven expertise in developing scalable machine learning solutions and cloud-based intelligent systems. Demonstrated track record of improving system accuracy by 30% and reliability by 95% through innovative NLP and Computer Vision implementations.
               </p>
-              <p style={{ fontSize: '1.0625rem', color: colors.textSecondary, lineHeight: '1.7' }}>
+              <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7' }}>
                 Passionate about leveraging cutting-edge AI/ML technologies to solve complex real-world challenges. Experience spans end-to-end ML pipeline development, from data preprocessing and feature engineering to model deployment and optimization. Strong collaborator with proven leadership experience directing cross-functional teams and delivering technical workshops to 200+ participants.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
               <div style={{ backgroundColor: colors.card, padding: '1.75rem', borderRadius: '0.75rem', border: `1px solid ${colors.border}` }}>
                 <div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
                   <Award size={28} style={{ color: colors.purple, marginTop: '0.25rem' }} />
@@ -408,7 +423,7 @@ export default function Portfolio() {
                 <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: colors.pink }}>
                   Core Competencies
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.625rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '0.625rem' }}>
                   {['Machine Learning', 'Natural Language Processing', 'Computer Vision', 'Cloud Architecture', 'API Development', 'Data Analytics'].map(tech => (
                     <div key={tech} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: colors.purple }}></div>
@@ -422,209 +437,209 @@ export default function Portfolio() {
         </section>
 
         {/* Technical Skills Section */}
-<section
-  id="skills"
-  style={{
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 2rem',
-    backgroundColor: colors.bg,
-  }}
->
-  <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-    <h2
-      style={{
-        fontSize: 'clamp(2rem, 5vw, 3rem)',
-        fontWeight: '700',
-        marginBottom: '1rem',
-        textAlign: 'center',
-      }}
-    >
-      Technical <span style={{ color: colors.purple }}>Stack</span>
-    </h2>
-    <p
-      style={{
-        textAlign: 'center',
-        color: colors.textSecondary,
-        marginBottom: '4rem',
-        fontSize: '1.125rem',
-      }}
-    >
-      Technologies and tools I use to build innovative solutions
-    </p>
-
-    {/* Skills as category cards with pill badges */}
-    {(() => {
-      const categoryMeta = {
-        'AI & Machine Learning': { icon: '🧠', color: colors.purple },
-        'Backend & APIs': { icon: '</>', color: colors.cyan },
-        'Cloud & DevOps': { icon: '☁️', color: colors.pink },
-        'Data Science': { icon: '📊', color: colors.cyan },
-      };
-
-      return (
-        <div
+        <section
+          id="skills"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)', // ✅ Two boxes per row
-            gap: '2rem',
-            marginBottom: '3rem',
+            minHeight: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            padding: isMobile ? '4rem 1rem' : '0 2rem',
+            backgroundColor: colors.bg,
           }}
         >
-          {Object.entries(skillsByCategory).map(([category, skills]) => {
-            const meta = categoryMeta[category] || { icon: '🔧', color: colors.purple };
-            return (
-              <div
-                key={category}
-                style={{
-                  background: `linear-gradient(180deg, ${colors.card}, ${colors.card})`,
-                  borderRadius: '0.75rem',
-                  padding: '2rem',
-                  border: `1px solid ${colors.border}`,
-                  boxShadow: isDarkMode
-                    ? '0 8px 30px rgba(0,0,0,0.25)'
-                    : '0 8px 30px rgba(0,0,0,0.05)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                }}
-              >
-                {/* Header with icon */}
+          <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
+            <h2
+              style={{
+                fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)',
+                fontWeight: '700',
+                marginBottom: '1rem',
+                textAlign: 'center',
+              }}
+            >
+              Technical <span style={{ color: colors.purple }}>Stack</span>
+            </h2>
+            <p
+              style={{
+                textAlign: 'center',
+                color: colors.textSecondary,
+                marginBottom: '4rem',
+                fontSize: isMobile ? '0.9375rem' : '1.125rem',
+              }}
+            >
+              Technologies and tools I use to build innovative solutions
+            </p>
+
+            {/* Skills as category cards with pill badges */}
+            {(() => {
+              const categoryMeta = {
+                'AI & Machine Learning': { icon: '🧠', color: colors.purple },
+                'Backend & APIs': { icon: '</>', color: colors.cyan },
+                'Cloud & DevOps': { icon: '☁️', color: colors.pink },
+                'Data Science': { icon: '📊', color: colors.cyan },
+              };
+
+              return (
                 <div
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    marginBottom: '1rem',
+                    display: 'grid',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', // ✅ Responsive change
+                    gap: isMobile ? '1.5rem' : '2rem',
+                    marginBottom: '3rem',
+                  }}
+                >
+                  {Object.entries(skillsByCategory).map(([category, skills]) => {
+                    const meta = categoryMeta[category] || { icon: '🔧', color: colors.purple };
+                    return (
+                      <div
+                        key={category}
+                        style={{
+                          background: `linear-gradient(180deg, ${colors.card}, ${colors.card})`,
+                          borderRadius: '0.75rem',
+                          padding: isMobile ? '1.5rem' : '2rem',
+                          border: `1px solid ${colors.border}`,
+                          boxShadow: isDarkMode
+                            ? '0 8px 30px rgba(0,0,0,0.25)'
+                            : '0 8px 30px rgba(0,0,0,0.05)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                        }}
+                      >
+                        {/* Header with icon */}
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '1rem',
+                            marginBottom: '1rem',
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: '44px',
+                              height: '44px',
+                              borderRadius: '10px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              background: `linear-gradient(135deg, ${meta.color}22, ${meta.color}11)`,
+                              fontSize: '1.25rem',
+                            }}
+                          >
+                            {meta.icon}
+                          </div>
+                          <h3
+                            style={{
+                              fontSize: isMobile ? '1rem' : '1.125rem',
+                              fontWeight: '700',
+                              margin: 0,
+                            }}
+                          >
+                            {category}
+                          </h3>
+                        </div>
+
+                        {/* Skill badges */}
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '0.5rem',
+                          }}
+                        >
+                          {skills.map((s) => (
+                            <span
+                              key={s.name}
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.45rem 0.75rem',
+                                borderRadius: '12px',
+                                border: `1px solid ${meta.color}33`,
+                                color: colors.text,
+                                backgroundColor: isDarkMode
+                                  ? 'rgba(255,255,255,0.02)'
+                                  : 'rgba(0,0,0,0.02)',
+                                fontSize: '0.875rem',
+                                fontWeight: 500,
+                                flexShrink: 0,
+                              }}
+                            >
+                              <span
+                                style={{
+                                  width: '7px',
+                                  height: '7px',
+                                  borderRadius: '9999px',
+                                  background: meta.color,
+                                }}
+                              ></span>
+                              {s.name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+
+            {/* Stats Section */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? 'repeat(auto-fit, minmax(120px, 1fr))' : 'repeat(auto-fit, minmax(200px, 1fr))', // ✅ Responsive change
+                gap: isMobile ? '1rem' : '2rem',
+              }}
+            >
+              {[
+                { value: '15+', label: 'Technologies', color: colors.cyan },
+                { value: '2', label: 'Internships', color: colors.purple },
+                { value: '9.5', label: 'GPA', color: colors.pink },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  style={{
+                    textAlign: 'center',
+                    padding: isMobile ? '1.5rem 0.5rem' : '2rem',
+                    backgroundColor: colors.card,
+                    borderRadius: '0.75rem',
+                    border: `1px solid ${colors.border}`,
                   }}
                 >
                   <div
                     style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '10px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: `linear-gradient(135deg, ${meta.color}22, ${meta.color}11)`,
-                      fontSize: '1.25rem',
-                    }}
-                  >
-                    {meta.icon}
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: '1.125rem',
+                      fontSize: isMobile ? '2rem' : '2.5rem', // ✅ Responsive change
                       fontWeight: '700',
-                      margin: 0,
+                      color: stat.color,
+                      marginBottom: '0.5rem',
                     }}
                   >
-                    {category}
-                  </h3>
+                    {stat.value}
+                  </div>
+                  <div style={{ color: colors.textSecondary, fontSize: isMobile ? '0.875rem' : '1rem' }}>
+                    {stat.label}
+                  </div>
                 </div>
-
-                {/* Skill badges */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '0.5rem',
-                  }}
-                >
-                  {skills.map((s) => (
-                    <span
-                      key={s.name}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        padding: '0.45rem 0.75rem',
-                        borderRadius: '12px',
-                        border: `1px solid ${meta.color}33`,
-                        color: colors.text,
-                        backgroundColor: isDarkMode
-                          ? 'rgba(255,255,255,0.02)'
-                          : 'rgba(0,0,0,0.02)',
-                        fontSize: '0.875rem',
-                        fontWeight: 500,
-                        flexShrink: 0,
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: '7px',
-                          height: '7px',
-                          borderRadius: '9999px',
-                          background: meta.color,
-                        }}
-                      ></span>
-                      {s.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      );
-    })()}
-
-    {/* Stats Section */}
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '2rem',
-      }}
-    >
-      {[
-        { value: '15+', label: 'Technologies', color: colors.cyan },
-        { value: '2', label: 'Internships', color: colors.purple },
-        { value: '9.5', label: 'GPA', color: colors.pink },
-      ].map((stat) => (
-        <div
-          key={stat.label}
-          style={{
-            textAlign: 'center',
-            padding: '2rem',
-            backgroundColor: colors.card,
-            borderRadius: '0.75rem',
-            border: `1px solid ${colors.border}`,
-          }}
-        >
-          <div
-            style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              color: stat.color,
-              marginBottom: '0.5rem',
-            }}
-          >
-            {stat.value}
+              ))}
+            </div>
           </div>
-          <div style={{ color: colors.textSecondary, fontSize: '1rem' }}>
-            {stat.label}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+        </section>
 
 
         {/* Experience Timeline Section */}
-        <section id="experience" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0 2rem', backgroundColor: colors.bg }}>
+        <section id="experience" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '4rem 1rem' : '0 2rem', backgroundColor: colors.bg }}>
           <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
               My <span style={{ color: colors.purple }}>Journey</span>
             </h2>
-            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: '1.125rem' }}>
+            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: isMobile ? '0.9375rem' : '1.125rem' }}>
               A timeline of growth and innovation in the world of technology
             </p>
 
             <div style={{ position: 'relative' }}>
-              {/* Timeline Line */}
+              {/* Timeline Line (Hidden on Mobile) */}
               <div style={{
                 position: 'absolute',
                 left: '50%',
@@ -632,25 +647,27 @@ export default function Portfolio() {
                 bottom: '0',
                 width: '2px',
                 background: `linear-gradient(180deg, ${colors.purple}, ${colors.pink})`,
-                transform: 'translateX(-50%)'
-              }} className="hidden md:block"></div>
+                transform: 'translateX(-50%)',
+                display: isMobile ? 'none' : 'block' // ✅ Responsive change
+              }}></div>
 
               {/* AI Intern */}
-              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative' }}>
-                <div style={{ flex: 1, textAlign: 'right' }} className="hidden md:block"></div>
+              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative', flexDirection: isMobile ? 'column' : 'row' }}>
+                <div style={{ flex: 1, textAlign: 'right', display: isMobile ? 'none' : 'block' }}></div>
                 
+                {/* Timeline Dot (Hidden on Mobile) */}
                 <div style={{
                   width: '50px',
                   height: '50px',
                   borderRadius: '50%',
                   background: `linear-gradient(135deg, ${colors.purple}, ${colors.pink})`,
-                  display: 'flex',
+                  display: isMobile ? 'none' : 'flex', // ✅ Responsive change
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                   zIndex: 2,
                   boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.purple}60`
-                }} className="hidden md:flex">
+                }}>
                   <div style={{
                     padding: '0.375rem 0.75rem',
                     backgroundColor: colors.purple,
@@ -666,25 +683,31 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
                   <div style={{
                     backgroundColor: colors.card,
-                    padding: '2rem',
+                    padding: isMobile ? '1.5rem' : '2rem',
                     borderRadius: '0.75rem',
                     border: `1px solid ${colors.border}`,
                     boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.3)' : '0 4px 20px rgba(0,0,0,0.1)'
                   }}>
+                    {/* Date Block for Mobile */}
+                    {isMobile && (
+                      <div style={{ padding: '0.375rem 0.75rem', backgroundColor: colors.purple, borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '600', color: '#fff', marginBottom: '1rem', width: 'fit-content' }}>
+                        Present
+                      </div>
+                    )}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: colors.textTertiary, fontSize: '0.875rem' }}>
                       <Calendar size={16} />
                       <span>June 2024 - August 2024</span>
                     </div>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: colors.purple, marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: '600', color: colors.purple, marginBottom: '0.5rem' }}>
                       AI Intern
                     </h3>
                     <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
                       TCET Open Source
                     </p>
-                    <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
+                    <p style={{ fontSize: isMobile ? '0.9375rem' : '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
                       Leading AI-driven product development and cloud architecture for next-generation solutions.
                     </p>
                     <div style={{ borderLeft: `3px solid ${colors.purple}`, paddingLeft: '1rem' }}>
@@ -709,26 +732,26 @@ export default function Portfolio() {
               </div>
 
               {/* Data Science Intern */}
-              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative', flexDirection: 'row-reverse' }} className="timeline-item">
-                <div style={{ flex: 1, textAlign: 'left' }} className="hidden md:block"></div>
+              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative', flexDirection: isMobile ? 'column' : 'row-reverse' }} className="timeline-item">
+                <div style={{ flex: 1, textAlign: 'left', display: isMobile ? 'none' : 'block' }}></div>
                 
                 <div style={{
                   width: '50px',
                   height: '50px',
                   borderRadius: '50%',
                   background: `linear-gradient(135deg, ${colors.pink}, ${colors.purple})`,
-                  display: 'flex',
+                  display: isMobile ? 'none' : 'flex', // ✅ Responsive change
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                   zIndex: 2,
                   boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.pink}60`
-                }} className="hidden md:flex"></div>
+                }}></div>
 
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
                   <div style={{
                     backgroundColor: colors.card,
-                    padding: '2rem',
+                    padding: isMobile ? '1.5rem' : '2rem',
                     borderRadius: '0.75rem',
                     border: `1px solid ${colors.border}`,
                     boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.3)' : '0 4px 20px rgba(0,0,0,0.1)'
@@ -737,13 +760,13 @@ export default function Portfolio() {
                       <Calendar size={16} />
                       <span>Feb 2023 - June 2023</span>
                     </div>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: colors.pink, marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: '600', color: colors.pink, marginBottom: '0.5rem' }}>
                       Applied Data Science Intern
                     </h3>
                     <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
                       Utkarshini Edutech
                     </p>
-                    <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
+                    <p style={{ fontSize: isMobile ? '0.9375rem' : '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
                       Led AI pipeline integrations and developed predictive analytics systems.
                     </p>
                     <div style={{ borderLeft: `3px solid ${colors.pink}`, paddingLeft: '1rem' }}>
@@ -771,16 +794,16 @@ export default function Portfolio() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0 2rem', backgroundColor: colors.bg }}>
+        <section id="projects" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '4rem 1rem' : '0 2rem', backgroundColor: colors.bg }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
               Featured <span style={{ color: colors.purple }}>Projects</span>
             </h2>
-            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: '1.125rem' }}>
+            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: isMobile ? '0.9375rem' : '1.125rem' }}>
               A selection of my recent work in AI/ML and cloud development
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
               {/* EchoVerse */}
               <div style={{
                 backgroundColor: colors.card,
@@ -927,13 +950,13 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section with Footer */}
-        <section id="contact" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 2rem 0', backgroundColor: colors.secondary }}>
+        <section id="contact" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '4rem 1rem 0' : '0 2rem 0', backgroundColor: colors.secondary }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', width: '100%', textAlign: 'center', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '0.75rem' }}>
               Get in <span style={{ color: colors.purple }}>Touch</span>
             </h2>
             <p style={{ 
-              fontSize: '1.125rem', 
+              fontSize: isMobile ? '1rem' : '1.125rem', 
               color: colors.textSecondary, 
               marginBottom: '2rem', 
               lineHeight: '1.7',
@@ -947,7 +970,7 @@ export default function Portfolio() {
               Let's build something amazing together!
           </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
               <a href="mailto:riddhijoshi5900@gmail.com" style={{
                 backgroundColor: colors.card,
                 padding: '1.5rem',
@@ -998,7 +1021,7 @@ export default function Portfolio() {
             </div>
 
  <a
-  href="Riddhi_resume.pdf"
+  href={process.env.PUBLIC_URL + '/Riddhi_resume.pdf'} // ✅ Fix the link path for Vercel deployment
   target="_blank"
   rel="noopener noreferrer"
   style={{
@@ -1035,7 +1058,7 @@ export default function Portfolio() {
           {/* Footer - Part of Contact Section */}
           <footer style={{
             borderTop: `1px solid ${colors.border}`,
-            padding: '2rem',
+            padding: isMobile ? '1.5rem 1rem' : '2rem', // ✅ Responsive change
             textAlign: 'center',
             marginTop: 'auto'
           }}>
@@ -1196,19 +1219,11 @@ export default function Portfolio() {
           }
         }
 
-        @media (max-width: 768px) {
-          .md\\:hidden { display: flex !important; }
-          .hidden.md\\:flex { display: none !important; }
-          .hidden.md\\:block { display: none !important; }
-          .timeline-item { flex-direction: row !important; }
-          .bg-blob { filter: blur(60px) !important; }
-        }
-
-        @media (min-width: 769px) {
-          .md\\:hidden { display: none !important; }
-          .hidden.md\\:flex { display: flex !important; }
-          .hidden.md\\:block { display: block !important; }
-        }
+        /*
+         * Removed the redundant media queries at the end of the file.
+         * The responsiveness is now driven by the 'isMobile' check
+         * in the inline styles, which is more predictable.
+         */
       `}</style>
     </div>
   );
