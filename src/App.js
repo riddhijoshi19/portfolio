@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Sun, Moon, Menu, X, Award, Code, Calendar, Sparkles, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Sun, Moon, Menu, X, Award, Calendar, Sparkles, Download } from 'lucide-react';
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('AI & Machine Learning');
+  // const [activeCategory, setActiveCategory] = useState('AI & Machine Learning');
 
   // --- START Responsive Logic ---
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -100,7 +100,7 @@ export default function Portfolio() {
     ]
   };
 
-  const categories = Object.keys(skillsByCategory);
+  // const categories = Object.keys(skillsByCategory);
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: colors.bg, color: colors.text, position: 'relative' }}>
