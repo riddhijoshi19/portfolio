@@ -67,30 +67,36 @@ export default function Portfolio() {
 
   // Skills data organized by category
   const skillsByCategory = {
-    'AI & Machine Learning': [
-      { name: 'Python', proficiency: 95, description: 'Primary language for AI/ML development' },
-      { name: 'TensorFlow', proficiency: 88, description: 'Deep learning framework' },
-      { name: 'PyTorch', proficiency: 85, description: 'Research-focused ML framework' },
-      { name: 'OpenCV', proficiency: 90, description: 'Computer vision library' },
-      { name: 'Scikit-learn', proficiency: 90, description: 'Machine learning library' }
+    'LLMs & NLP': [
+      { name: 'Transformers', proficiency: 88, description: 'Deep learning framework' },
+      { name: 'RAG', proficiency: 85, description: 'Research-focused ML framework' },
+      { name: 'Hugging Face', proficiency: 90, description: 'Computer vision library' },
+      { name: 'Sentence Transformers', proficiency: 85, description: 'Database querying' },
+      { name: 'Embeddings', proficiency: 85, description: 'Database querying' },
+      { name: 'Vector Search', proficiency: 90, description: 'Machine learning library' }
     ],
-    'Backend & APIs': [
-      { name: 'FastAPI', proficiency: 92, description: 'Modern API framework' },
-      { name: 'Flask', proficiency: 88, description: 'Python web framework' },
-      { name: 'SQL', proficiency: 85, description: 'Database querying' },
+    'AI Engineering': [
+      { name: 'Python', proficiency: 92, description: 'Modern API framework' },
+      { name: 'FastAPI', proficiency: 88, description: 'Python web framework' },
+      { name: 'PostgreSQL', proficiency: 85, description: 'Database querying' },
+      { name: 'Qdrant', proficiency: 85, description: 'Database querying' },
+      { name: 'ChromaDB', proficiency: 85, description: 'Database querying' },
       { name: 'REST APIs', proficiency: 90, description: 'API design and development' }
     ],
-    'Cloud & DevOps': [
-      { name: 'Docker', proficiency: 85, description: 'Containerization platform' },
-      { name: 'Google Cloud', proficiency: 82, description: 'Cloud Run, Cloud Build' },
-      { name: 'Git', proficiency: 90, description: 'Version control system' },
-      { name: 'Linux', proficiency: 88, description: 'Operating system & scripting' }
+    'Deep Learning': [
+      { name: 'PyTorch', proficiency: 85, description: 'Containerization platform' },
+      { name: 'Neural Networks', proficiency: 82, description: 'Cloud Run, Cloud Build' },
+      { name: 'Attention Mechanism', proficiency: 90, description: 'Version control system' },
+      { name: 'Tokenization', proficiency: 88, description: 'Operating system & scripting' },
+      { name: 'Model Training', proficiency: 85, description: 'Database querying' },
+      { name: 'Fine-tuning', proficiency: 85, description: 'Database querying' }
     ],
-    'Data Science': [
-      { name: 'Pandas', proficiency: 93, description: 'Data manipulation library' },
-      { name: 'NumPy', proficiency: 91, description: 'Numerical computing' },
-      { name: 'Matplotlib', proficiency: 87, description: 'Data visualization' },
-      { name: 'Plotly', proficiency: 89, description: 'Interactive visualizations' }
+    'Cloud & Development': [
+      { name: 'Docker', proficiency: 93, description: 'Data manipulation library' },
+      { name: 'Google Cloud Run', proficiency: 91, description: 'Numerical computing' },
+      { name: 'Google Cloud Build', proficiency: 87, description: 'Data visualization' },
+      { name: 'Git', proficiency: 85, description: 'Database querying' },
+      { name: 'Linux', proficiency: 89, description: 'Interactive visualizations' }
     ]
   };
 
@@ -302,10 +308,10 @@ export default function Portfolio() {
                   Riddhi Joshi
                 </h1>
                 <h2 style={{ fontSize: isMobile ? '1.5rem' : 'clamp(1.5rem, 4vw, 3rem)', fontWeight: '600', color: colors.textSecondary, marginBottom: '2rem', lineHeight: '1.2' }}>
-                  I build intelligent AI solutions.
+                  Building LLM-powered applications and AI systems.
                 </h2>
                 <p style={{ fontSize: isMobile ? '1rem' : '1.1875rem', color: colors.textTertiary, marginBottom: '3rem', lineHeight: '1.8', maxWidth: '600px' }}>
-                  I'm an AI & Data Science student specializing in building exceptional machine learning models, NLP systems, and scalable cloud applications. Currently focused on crafting intelligent solutions that make a real-world impact.
+                  Final-year AI & Data Science undergraduate building production-ready AI applications with FastAPI, PyTorch, PostgreSQL, and vector databases.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                   <button
@@ -399,10 +405,13 @@ export default function Portfolio() {
                 Professional Summary
               </h3>
               <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
-                Results-driven AI & Data Science undergraduate with proven expertise in developing scalable machine learning solutions and cloud-based intelligent systems. Demonstrated track record of improving system accuracy by 30% and reliability by 95% through innovative NLP and Computer Vision implementations.
+                I'm a final-year AI & Data Science student at Thakur College of Engineering and Technology with a strong interest in Large Language Models, Retrieval-Augmented Generation (RAG), and NLP systems.
               </p>
-              <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7' }}>
-                Passionate about leveraging cutting-edge AI/ML technologies to solve complex real-world challenges. Experience spans end-to-end ML pipeline development, from data preprocessing and feature engineering to model deployment and optimization. Strong collaborator with proven leadership experience directing cross-functional teams and delivering technical workshops to 200+ participants.
+              <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
+              Over the past few years, I've built projects ranging from citation-backed AI research assistants to transformer models implemented from scratch in PyTorch. I enjoy working across the entire AI development lifecycle—from data processing and model development to API deployment and cloud infrastructure.
+              </p>
+              <p style={{ fontSize: isMobile ? '1rem' : '1.0625rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
+              Beyond technical work, I've led career development initiatives for 200+ students and enjoy helping others learn and grow in technology.
               </p>
             </div>
 
@@ -424,7 +433,7 @@ export default function Portfolio() {
                   Core Competencies
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '0.625rem' }}>
-                  {['Machine Learning', 'Natural Language Processing', 'Computer Vision', 'Cloud Architecture', 'API Development', 'Data Analytics'].map(tech => (
+                  {['Large Language Models (LLMs)', 'Retrieval Augmented Generation', 'Natural Language Processing', 'FastAPI & Backend Development', 'PyTorch & Deep Learning', 'Vector Search & Embeddings'].map(tech => (
                     <div key={tech} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: colors.purple }}></div>
                       <span style={{ color: colors.textSecondary, fontSize: '0.875rem' }}>{tech}</span>
@@ -472,7 +481,7 @@ export default function Portfolio() {
             {/* Skills as category cards with pill badges */}
             {(() => {
               const categoryMeta = {
-                'AI & Machine Learning': { icon: '🧠', color: colors.purple },
+                'LLMs & NLP': { icon: '🧠', color: colors.purple },
                 'Backend & APIs': { icon: '</>', color: colors.cyan },
                 'Cloud & DevOps': { icon: '☁️', color: colors.pink },
                 'Data Science': { icon: '📊', color: colors.cyan },
@@ -594,9 +603,9 @@ export default function Portfolio() {
               }}
             >
               {[
-                { value: '15+', label: 'Technologies', color: colors.cyan },
+                { value: '9.5', label: 'CGPA', color: colors.cyan },
                 { value: '2', label: 'Internships', color: colors.purple },
-                { value: '9.5', label: 'GPA', color: colors.pink },
+                { value: '2', label: 'End-to-End AI Projects', color: colors.pink },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -628,326 +637,550 @@ export default function Portfolio() {
         </section>
 
 
-        {/* Experience Timeline Section */}
-        <section id="experience" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '4rem 1rem' : '0 2rem', backgroundColor: colors.bg }}>
-          <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
-            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
-              My <span style={{ color: colors.purple }}>Journey</span>
-            </h2>
-            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: isMobile ? '0.9375rem' : '1.125rem' }}>
-              A timeline of growth and innovation in the world of technology
+{/* Experience Timeline Section */}
+<section
+  id="experience"
+  style={{
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    padding: isMobile ? '4rem 1rem' : '0 2rem',
+    backgroundColor: colors.bg
+  }}
+>
+  <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
+    <h2
+      style={{
+        fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)',
+        fontWeight: '700',
+        marginBottom: '1rem',
+        textAlign: 'center'
+      }}
+    >
+      My <span style={{ color: colors.purple }}>Internships</span>
+    </h2>
+
+    <p
+      style={{
+        textAlign: 'center',
+        color: colors.textSecondary,
+        marginBottom: '4rem',
+        fontSize: isMobile ? '0.9375rem' : '1.125rem'
+      }}
+    >
+      Professional experience across AI engineering, NLP, and full-stack development
+    </p>
+
+    <div style={{ position: 'relative' }}>
+      {/* Timeline Line */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '0',
+          bottom: '0',
+          width: '2px',
+          background: `linear-gradient(180deg, ${colors.purple}, ${colors.pink})`,
+          transform: 'translateX(-50%)',
+          display: isMobile ? 'none' : 'block'
+        }}
+      />
+
+      {/* Capgemini Internship */}
+      <div
+        style={{
+          display: 'flex',
+          gap: '2rem',
+          marginBottom: '4rem',
+          alignItems: 'center',
+          position: 'relative',
+          flexDirection: isMobile ? 'column' : 'row'
+        }}
+      >
+        <div style={{ flex: 1, display: isMobile ? 'none' : 'block' }} />
+
+        <div
+          style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, ${colors.purple}, ${colors.pink})`,
+            display: isMobile ? 'none' : 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            zIndex: 2,
+            boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.purple}60`
+          }}
+        />
+
+        <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
+          <div
+            style={{
+              backgroundColor: colors.card,
+              padding: isMobile ? '1.5rem' : '2rem',
+              borderRadius: '0.75rem',
+              border: `1px solid ${colors.border}`,
+              boxShadow: isDarkMode
+                ? '0 4px 20px rgba(0,0,0,0.3)'
+                : '0 4px 20px rgba(0,0,0,0.1)'
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '0.5rem',
+                color: colors.textTertiary,
+                fontSize: '0.875rem'
+              }}
+            >
+              <Calendar size={16} />
+              <span>February 2026 - April 2026</span>
+            </div>
+
+            <h3
+              style={{
+                fontSize: isMobile ? '1.25rem' : '1.5rem',
+                fontWeight: '600',
+                color: colors.purple,
+                marginBottom: '0.5rem'
+              }}
+            >
+              Java Full Stack Developer Intern
+            </h3>
+
+            <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
+              Capgemini
             </p>
 
-            <div style={{ position: 'relative' }}>
-              {/* Timeline Line (Hidden on Mobile) */}
-              <div style={{
-                position: 'absolute',
-                left: '50%',
-                top: '0',
-                bottom: '0',
-                width: '2px',
-                background: `linear-gradient(180deg, ${colors.purple}, ${colors.pink})`,
-                transform: 'translateX(-50%)',
-                display: isMobile ? 'none' : 'block' // ✅ Responsive change
-              }}></div>
+            <p
+              style={{
+                fontSize: isMobile ? '0.9375rem' : '1rem',
+                color: colors.textSecondary,
+                lineHeight: '1.7',
+                marginBottom: '1rem'
+              }}
+            >
+              Built backend modules, REST APIs, and enterprise application features using Java,
+              Spring Boot, SQL, and React.
+            </p>
 
-              {/* AI Intern */}
-              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative', flexDirection: isMobile ? 'column' : 'row' }}>
-                <div style={{ flex: 1, textAlign: 'right', display: isMobile ? 'none' : 'block' }}></div>
-                
-                {/* Timeline Dot (Hidden on Mobile) */}
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(135deg, ${colors.purple}, ${colors.pink})`,
-                  display: isMobile ? 'none' : 'flex', // ✅ Responsive change
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  zIndex: 2,
-                  boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.purple}60`
-                }}>
-                  <div style={{
-                    padding: '0.375rem 0.75rem',
-                    backgroundColor: colors.purple,
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    color: '#fff',
-                    position: 'absolute',
-                    top: '-40px',
-                    whiteSpace: 'nowrap'
-                  }}>
-                    Present
-                  </div>
-                </div>
+            <div style={{ borderLeft: `3px solid ${colors.purple}`, paddingLeft: '1rem' }}>
+              <p
+                style={{
+                  fontSize: '0.9375rem',
+                  fontWeight: '600',
+                  color: colors.text,
+                  marginBottom: '0.75rem'
+                }}
+              >
+                🏆 Key Achievements
+              </p>
 
-                <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
-                  <div style={{
-                    backgroundColor: colors.card,
-                    padding: isMobile ? '1.5rem' : '2rem',
-                    borderRadius: '0.75rem',
-                    border: `1px solid ${colors.border}`,
-                    boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.3)' : '0 4px 20px rgba(0,0,0,0.1)'
-                  }}>
-                    {/* Date Block for Mobile */}
-                    {isMobile && (
-                      <div style={{ padding: '0.375rem 0.75rem', backgroundColor: colors.purple, borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '600', color: '#fff', marginBottom: '1rem', width: 'fit-content' }}>
-                        Present
-                      </div>
-                    )}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: colors.textTertiary, fontSize: '0.875rem' }}>
-                      <Calendar size={16} />
-                      <span>June 2024 - August 2024</span>
-                    </div>
-                    <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: '600', color: colors.purple, marginBottom: '0.5rem' }}>
-                      AI Intern
-                    </h3>
-                    <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
-                      TCET Open Source
-                    </p>
-                    <p style={{ fontSize: isMobile ? '0.9375rem' : '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
-                      Leading AI-driven product development and cloud architecture for next-generation solutions.
-                    </p>
-                    <div style={{ borderLeft: `3px solid ${colors.purple}`, paddingLeft: '1rem' }}>
-                      <p style={{ fontSize: '0.9375rem', fontWeight: '600', color: colors.text, marginBottom: '0.75rem' }}>
-                        🏆 Key Achievements
-                      </p>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        {[
-                          'Built an AI-powered Resume Screening System using NLP and Computer Vision',
-                          'Improved screening accuracy by 30% through classification models',
-                          'Increased parsing reliability to 95% with OpenCV and Tesseract'
-                        ].map((item, idx) => (
-                          <li key={idx} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem', color: colors.textSecondary, fontSize: '0.9375rem', lineHeight: '1.6' }}>
-                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: colors.cyan, marginTop: '0.5rem', flexShrink: 0 }}></div>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Data Science Intern */}
-              <div style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', alignItems: 'center', position: 'relative', flexDirection: isMobile ? 'column' : 'row-reverse' }} className="timeline-item">
-                <div style={{ flex: 1, textAlign: 'left', display: isMobile ? 'none' : 'block' }}></div>
-                
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(135deg, ${colors.pink}, ${colors.purple})`,
-                  display: isMobile ? 'none' : 'flex', // ✅ Responsive change
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  zIndex: 2,
-                  boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.pink}60`
-                }}></div>
-
-                <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
-                  <div style={{
-                    backgroundColor: colors.card,
-                    padding: isMobile ? '1.5rem' : '2rem',
-                    borderRadius: '0.75rem',
-                    border: `1px solid ${colors.border}`,
-                    boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.3)' : '0 4px 20px rgba(0,0,0,0.1)'
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: colors.textTertiary, fontSize: '0.875rem' }}>
-                      <Calendar size={16} />
-                      <span>Feb 2023 - June 2023</span>
-                    </div>
-                    <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: '600', color: colors.pink, marginBottom: '0.5rem' }}>
-                      Applied Data Science Intern
-                    </h3>
-                    <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
-                      Utkarshini Edutech
-                    </p>
-                    <p style={{ fontSize: isMobile ? '0.9375rem' : '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1rem' }}>
-                      Led AI pipeline integrations and developed predictive analytics systems.
-                    </p>
-                    <div style={{ borderLeft: `3px solid ${colors.pink}`, paddingLeft: '1rem' }}>
-                      <p style={{ fontSize: '0.9375rem', fontWeight: '600', color: colors.text, marginBottom: '0.75rem' }}>
-                        🏆 Key Achievements
-                      </p>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        {[
-                          'Built Educational Performance Prediction System for at-risk learners',
-                          'Achieved 85% accuracy with Random Forest and XGBoost models',
-                          'Created interactive dashboards for performance insights'
-                        ].map((item, idx) => (
-                          <li key={idx} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem', color: colors.textSecondary, fontSize: '0.9375rem', lineHeight: '1.6' }}>
-                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: colors.cyan, marginTop: '0.5rem', flexShrink: 0 }}></div>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {[
+                  'Developed REST APIs and backend modules using Java and Spring Boot',
+                  'Implemented CRUD workflows, authentication, and passenger management features',
+                  'Worked with SQL, React, Git, and Agile/Scrum development practices'
+                ].map((item, idx) => (
+                  <li
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      gap: '0.75rem',
+                      marginBottom: '0.5rem',
+                      color: colors.textSecondary,
+                      fontSize: '0.9375rem',
+                      lineHeight: '1.6'
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '5px',
+                        height: '5px',
+                        borderRadius: '50%',
+                        backgroundColor: colors.cyan,
+                        marginTop: '0.5rem',
+                        flexShrink: 0
+                      }}
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+
+      {/* TCET Internship */}
+      <div
+        style={{
+          display: 'flex',
+          gap: '2rem',
+          marginBottom: '4rem',
+          alignItems: 'center',
+          position: 'relative',
+          flexDirection: isMobile ? 'column' : 'row-reverse'
+        }}
+      >
+        <div style={{ flex: 1, display: isMobile ? 'none' : 'block' }} />
+
+        <div
+          style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, ${colors.pink}, ${colors.purple})`,
+            display: isMobile ? 'none' : 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            zIndex: 2,
+            boxShadow: `0 0 0 4px ${colors.bg}, 0 0 20px ${colors.pink}60`
+          }}
+        />
+
+        <div style={{ flex: 1, width: isMobile ? '100%' : 'auto' }}>
+          <div
+            style={{
+              backgroundColor: colors.card,
+              padding: isMobile ? '1.5rem' : '2rem',
+              borderRadius: '0.75rem',
+              border: `1px solid ${colors.border}`,
+              boxShadow: isDarkMode
+                ? '0 4px 20px rgba(0,0,0,0.3)'
+                : '0 4px 20px rgba(0,0,0,0.1)'
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '0.5rem',
+                color: colors.textTertiary,
+                fontSize: '0.875rem'
+              }}
+            >
+              <Calendar size={16} />
+              <span>June 2023 - August 2023</span>
+            </div>
+
+            <h3
+              style={{
+                fontSize: isMobile ? '1.25rem' : '1.5rem',
+                fontWeight: '600',
+                color: colors.pink,
+                marginBottom: '0.5rem'
+              }}
+            >
+              AI Intern
+            </h3>
+
+            <p style={{ fontSize: '1.125rem', color: colors.textSecondary, marginBottom: '1rem' }}>
+              TCET Open Source
+            </p>
+
+            <p
+              style={{
+                fontSize: isMobile ? '0.9375rem' : '1rem',
+                color: colors.textSecondary,
+                lineHeight: '1.7',
+                marginBottom: '1rem'
+              }}
+            >
+              Developed NLP and OCR-based solutions for automated resume screening and document
+              processing systems.
+            </p>
+
+            <div style={{ borderLeft: `3px solid ${colors.pink}`, paddingLeft: '1rem' }}>
+              <p
+                style={{
+                  fontSize: '0.9375rem',
+                  fontWeight: '600',
+                  color: colors.text,
+                  marginBottom: '0.75rem'
+                }}
+              >
+                🏆 Key Achievements
+              </p>
+
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {[
+                  'Built an AI-powered resume screening system using NLP and OCR',
+                  'Improved candidate classification accuracy by 30%',
+                  'Increased resume parsing reliability to 95% using OpenCV and Tesseract'
+                ].map((item, idx) => (
+                  <li
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      gap: '0.75rem',
+                      marginBottom: '0.5rem',
+                      color: colors.textSecondary,
+                      fontSize: '0.9375rem',
+                      lineHeight: '1.6'
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '5px',
+                        height: '5px',
+                        borderRadius: '50%',
+                        backgroundColor: colors.cyan,
+                        marginTop: '0.5rem',
+                        flexShrink: 0
+                      }}
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Projects Section */}
-        <section id="projects" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: isMobile ? '4rem 1rem' : '0 2rem', backgroundColor: colors.bg }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-            <h2 style={{ fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)', fontWeight: '700', marginBottom: '1rem', textAlign: 'center' }}>
-              Featured <span style={{ color: colors.purple }}>Projects</span>
-            </h2>
-            <p style={{ textAlign: 'center', color: colors.textSecondary, marginBottom: '4rem', fontSize: isMobile ? '0.9375rem' : '1.125rem' }}>
-              A selection of my recent work in AI/ML and cloud development
-            </p>
+<section
+  id="projects"
+  style={{
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    padding: isMobile ? '4rem 1rem' : '0 2rem',
+    backgroundColor: colors.bg
+  }}
+>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
+    <h2
+      style={{
+        fontSize: isMobile ? '2rem' : 'clamp(2rem, 5vw, 3rem)',
+        fontWeight: '700',
+        marginBottom: '1rem',
+        textAlign: 'center'
+      }}
+    >
+      Featured <span style={{ color: colors.purple }}>Projects</span>
+    </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
-              {/* EchoVerse */}
-              <div style={{
-                backgroundColor: colors.card,
-                borderRadius: '0.75rem',
-                overflow: 'hidden',
-                border: `1px solid ${colors.border}`,
-                transition: 'all 0.3s',
-                cursor: 'pointer'
+    <p
+      style={{
+        textAlign: 'center',
+        color: colors.textSecondary,
+        marginBottom: '4rem',
+        fontSize: isMobile ? '0.9375rem' : '1.125rem'
+      }}
+    >
+      A selection of my recent work in AI/ML and cloud development
+    </p>
+
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+        gap: '2rem'
+      }}
+    >
+      {/* AI Research Assistant */}
+      <a
+        href="https://github.com/YOUR_USERNAME/ai-research-assistant"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: 'none', color: 'inherit' }}
+      >
+        <div
+          style={{
+            backgroundColor: colors.card,
+            borderRadius: '0.75rem',
+            overflow: 'hidden',
+            border: `1px solid ${colors.border}`,
+            transition: 'all 0.3s',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = `0 12px 40px ${colors.purple}30`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <div
+            style={{
+              height: '220px',
+              background: `linear-gradient(135deg, ${colors.purple} 0%, ${colors.pink} 100%)`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
+            <div style={{ fontSize: '5rem', position: 'relative', zIndex: 1 }}>🤖</div>
+
+            <div
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem'
               }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = `0 12px 40px ${colors.purple}30`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+            >
+              <span
+                style={{
+                  padding: '0.375rem 0.875rem',
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  color: '#fff'
                 }}
               >
-                <div style={{
-                  height: '220px',
-                  background: `linear-gradient(135deg, ${colors.purple} 0%, ${colors.pink} 100%)`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ fontSize: '5rem', position: 'relative', zIndex: 1 }}>🎤</div>
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    display: 'flex',
-                    gap: '0.5rem'
-                  }}>
-                    <span style={{
-                      padding: '0.375rem 0.875rem',
-                      backgroundColor: 'rgba(255,255,255,0.2)',
-                      backdropFilter: 'blur(10px)',
-                      borderRadius: '9999px',
-                      fontSize: '0.75rem',
-                      fontWeight: '600',
-                      color: '#fff'
-                    }}>Smart AI</span>
-                  </div>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.75rem' }}>
-                    EchoVerse
-                  </h3>
-                  <p style={{ fontSize: '1rem', color: colors.purple, fontWeight: '500', marginBottom: '1rem' }}>
-                    Real-Time Speech Intelligence System
-                  </p>
-                  <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                    An advanced speech-to-text system with sub-400 ms latency, deployed via Docker and Cloud Run with autoscaling.
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    {['FastAPI', 'Faster-Whisper', 'Cloud Run', 'Docker'].map(tech => (
-                      <span key={tech} style={{
-                        padding: '0.375rem 0.75rem',
-                        backgroundColor: colors.secondary,
-                        border: `1px solid ${colors.border}`,
-                        borderRadius: '9999px',
-                        fontSize: '0.8125rem',
-                        color: colors.textTertiary
-                      }}>{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Stock Market Analysis */}
-              <div style={{
-                backgroundColor: colors.card,
-                borderRadius: '0.75rem',
-                overflow: 'hidden',
-                border: `1px solid ${colors.border}`,
-                transition: 'all 0.3s',
-                cursor: 'pointer'
-              }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = `0 12px 40px ${colors.pink}30`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <div style={{
-                  height: '220px',
-                  background: `linear-gradient(135deg, ${colors.pink} 0%, ${colors.purple} 100%)`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ fontSize: '5rem', position: 'relative', zIndex: 1 }}>📈</div>
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    display: 'flex',
-                    gap: '0.5rem'
-                  }}>
-                    <span style={{
-                      padding: '0.375rem 0.875rem',
-                      backgroundColor: 'rgba(255,255,255,0.2)',
-                      backdropFilter: 'blur(10px)',
-                      borderRadius: '9999px',
-                      fontSize: '0.75rem',
-                      fontWeight: '600',
-                      color: '#fff'
-                    }}>ML Prediction</span>
-                  </div>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.75rem' }}>
-                    Stock Market Analysis
-                  </h3>
-                  <p style={{ fontSize: '1rem', color: colors.pink, fontWeight: '500', marginBottom: '1rem' }}>
-                    Predictive Financial Analytics Tool
-                  </p>
-                  <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                    Built a Python-based tool to forecast stock trends using Prophet and ML-based volatility prediction with interactive visualizations.
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    {['Python', 'Scikit-learn', 'Plotly', 'Prophet'].map(tech => (
-                      <span key={tech} style={{
-                        padding: '0.375rem 0.75rem',
-                        backgroundColor: colors.secondary,
-                        border: `1px solid ${colors.border}`,
-                        borderRadius: '9999px',
-                        fontSize: '0.8125rem',
-                        color: colors.textTertiary
-                      }}>{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                RAG System
+              </span>
             </div>
           </div>
-        </section>
+
+          <div style={{ padding: '2rem' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.75rem' }}>
+              AI Research Assistant
+            </h3>
+
+            <p style={{ fontSize: '1rem', color: colors.purple, fontWeight: '500', marginBottom: '1rem' }}>
+              Multi-Document RAG Platform
+            </p>
+
+            <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1.5rem' }}>
+              Built a citation-backed AI research assistant capable of semantic search, source comparison, claim verification, and retrieval-augmented question answering across multiple documents.
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {['FastAPI', 'PostgreSQL', 'Qdrant', 'Sentence Transformers', 'RAG'].map((tech) => (
+                <span
+                  key={tech}
+                  style={{
+                    padding: '0.375rem 0.75rem',
+                    backgroundColor: colors.secondary,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: '9999px',
+                    fontSize: '0.8125rem',
+                    color: colors.textTertiary
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </a>
+
+      {/* MiniGPT */}
+      <a
+        href="https://github.com/YOUR_USERNAME/minigpt-from-scratch"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: 'none', color: 'inherit' }}
+      >
+        <div
+          style={{
+            backgroundColor: colors.card,
+            borderRadius: '0.75rem',
+            overflow: 'hidden',
+            border: `1px solid ${colors.border}`,
+            transition: 'all 0.3s',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = `0 12px 40px ${colors.pink}30`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <div
+            style={{
+              height: '220px',
+              background: `linear-gradient(135deg, ${colors.pink} 0%, ${colors.purple} 100%)`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
+            <div style={{ fontSize: '5rem', position: 'relative', zIndex: 1 }}>🧠</div>
+
+            <div
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem'
+              }}
+            >
+              <span
+                style={{
+                  padding: '0.375rem 0.875rem',
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  color: '#fff'
+                }}
+              >
+                Transformer
+              </span>
+            </div>
+          </div>
+
+          <div style={{ padding: '2rem' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.75rem' }}>
+              MiniGPT From Scratch
+            </h3>
+
+            <p style={{ fontSize: '1rem', color: colors.pink, fontWeight: '500', marginBottom: '1rem' }}>
+              Transformer Language Model
+            </p>
+
+            <p style={{ fontSize: '1rem', color: colors.textSecondary, lineHeight: '1.7', marginBottom: '1.5rem' }}>
+              Built a GPT-style Transformer architecture from scratch in PyTorch, implementing tokenization, embeddings, self-attention, masked attention, and autoregressive text generation.
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {['PyTorch', 'Transformers', 'Attention', 'Neural Networks', 'Deep Learning'].map((tech) => (
+                <span
+                  key={tech}
+                  style={{
+                    padding: '0.375rem 0.75rem',
+                    backgroundColor: colors.secondary,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: '9999px',
+                    fontSize: '0.8125rem',
+                    color: colors.textTertiary
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
         {/* Contact Section with Footer */}
         <section id="contact" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '4rem 1rem 0' : '0 2rem 0', backgroundColor: colors.secondary }}>
