@@ -991,7 +991,7 @@ export default function Portfolio() {
     >
       {/* AI Research Assistant */}
       <a
-        href="https://github.com/YOUR_USERNAME/ai-research-assistant"
+        href="https://github.com/riddhijoshi19/ai-research-assistant/tree/main"
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: 'none', color: 'inherit' }}
@@ -1064,7 +1064,7 @@ export default function Portfolio() {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              {['FastAPI', 'PostgreSQL', 'Qdrant', 'Sentence Transformers', 'RAG'].map((tech) => (
+              {['FastAPI', 'ChromaDB', 'Gemini API', 'Sentence Transformers', 'RAG'].map((tech) => (
                 <span
                   key={tech}
                   style={{
@@ -1086,7 +1086,7 @@ export default function Portfolio() {
 
       {/* MiniGPT */}
       <a
-        href="https://github.com/YOUR_USERNAME/minigpt-from-scratch"
+        href= "https://github.com/riddhijoshi19/mini-gpt"
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: 'none', color: 'inherit' }}
